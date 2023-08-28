@@ -52,4 +52,11 @@ public class StudentDaoImp implements StudentDao{
     public void update(Student theStudent) {
         entityManager.merge(theStudent);
     }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        Student myStudent=entityManager.find(Student.class,id );
+        entityManager.remove(myStudent);
+    }
 }

@@ -24,8 +24,16 @@ public class  CruddemoApplication {
 			//readStudent(studentDao);
 			//queryStudent(studentDao);
 			//queryStudentByLastName(studentDao);
-			updateStudent(studentDao);
+			//updateStudent(studentDao);
+			removeStudent(studentDao);
 		};
+	}
+
+	private void removeStudent(StudentDao studentDao) {
+		int id=3;
+		System.out.println("Deleting Student");
+		studentDao.delete(id);
+
 	}
 
 	private void updateStudent(StudentDao studentDao) {
