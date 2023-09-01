@@ -20,13 +20,13 @@ public class  CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDao studentDao){
 		return runner -> {
 			//createStudent(studentDao);
-			//multipleStudent(studentDao);
+			multipleStudent(studentDao);
 			//readStudent(studentDao);
 			//queryStudent(studentDao);
 			//queryStudentByLastName(studentDao);
 			//updateStudent(studentDao);
 			//removeStudent(studentDao);
-			removeAllStudent(studentDao);
+			//removeAllStudent(studentDao);
 
 		};
 	}
