@@ -18,7 +18,7 @@ public class EmployeeDaoImp implements EmployeeDao {
         this.entityManager = entityManager;
     }
 
-    @Override
+     @Override
     public List<Employee> findAll() {
         TypedQuery<Employee> theQuery=entityManager.createQuery("from Employee",Employee.class);
         List<Employee> employees=theQuery.getResultList();
