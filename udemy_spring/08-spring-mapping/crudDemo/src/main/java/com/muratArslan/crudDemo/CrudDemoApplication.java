@@ -4,6 +4,7 @@ import com.muratArslan.crudDemo.dao.AppDao;
 import com.muratArslan.crudDemo.entity.Course;
 import com.muratArslan.crudDemo.entity.Instructor;
 import com.muratArslan.crudDemo.entity.InstructorDetail;
+import com.muratArslan.crudDemo.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,9 +33,40 @@ public class CrudDemoApplication {
 			//findInstructorWithCoursesJoinFetch(appDao);
 			//updateInstructor(appDao);
 			//updateCourse(appDao);
-			removeCourseById(appDao);
+			//removeCourseById(appDao);
+			//createCourseAndReviews(appDao);
+			//retrieveCourseAndReviews(appDao);
+			deleteCourseAndReviews(appDao);
 
 		};
+	}
+
+	private void deleteCourseAndReviews(AppDao appDao) {
+		int id=10;
+		System.out.println("Deleted Course id: "+id);
+		appDao.deleteCourseById(id);
+	}
+
+	private void retrieveCourseAndReviews(AppDao appDao) {
+		int id=10;
+		Course tempCourse=appDao.findCourseAndReviewByCourseId(id);
+		System.out.println(tempCourse.toString());
+		System.out.println(tempCourse.getReviews());
+	}
+
+	private void createCourseAndReviews(AppDao appDao) {
+		//create a course
+		Course tempCourse=new Course("Pacman- How to Score One Million Points");
+
+		// add some reviews
+		tempCourse.addReview(new Review("Very good course"));
+		tempCourse.addReview(new Review("I did One million points with that course"));
+		tempCourse.addReview(new Review("So bad course I had only 20 points"));
+		//save the course
+		System.out.println("Saving Course and Reviews");
+		System.out.println(tempCourse);
+		System.out.println(tempCourse.getReviews());
+		appDao.saveCourse(tempCourse);
 	}
 
 	private void removeCourseById(AppDao appDao) {
